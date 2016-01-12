@@ -1,6 +1,7 @@
 package com.cml.rx.android.model;
 
 public class User {
+	private String objectId;
 	private String username;
 	private String password;
 
@@ -18,6 +19,20 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getObjectId() {
+		return objectId;
+	}
+
+	public void setObjectId(String objectId) {
+		this.objectId = objectId;
+	}
+
+	@Override
+	public String toString() {
+		return "User [objectId=" + objectId + ", username=" + username
+				+ ", password=" + password + "]";
 	}
 
 }
