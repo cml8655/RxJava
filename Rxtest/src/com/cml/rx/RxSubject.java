@@ -39,6 +39,7 @@ public class RxSubject {
 		subject.onNext(2);
 		subject.onNext(3);
 		subject.onNext(4);
+		subject.onCompleted();
 		subject.subscribe(new Action1<Integer>() {
 
 			@Override
@@ -46,6 +47,7 @@ public class RxSubject {
 				System.out.println("===ACtion2=====>" + t);
 			}
 		});
+		
 
 	}
 

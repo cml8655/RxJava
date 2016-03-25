@@ -4,6 +4,13 @@
 	<groupId>Rxtest</groupId>
 	<artifactId>Rxtest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+	<repositories>
+		<repository>
+			<id>cedarsoft-thirdparty</id>
+			<url>http://maven.cedarsoft.com/content/repositories/thirdparty/</url>
+		</repository>
+	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -19,6 +26,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.mcxiaoke.volley</groupId>
+			<artifactId>library</artifactId>
+			<version>1.0.19</version>
+		</dependency>
 		<dependency>
 			<groupId>com.squareup.retrofit</groupId>
 			<artifactId>retrofit</artifactId>
@@ -38,6 +50,11 @@
 			<groupId>com.squareup.retrofit</groupId>
 			<artifactId>adapter-rxjava</artifactId>
 			<version>2.0.0-beta2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.im4java</groupId>
+			<artifactId>im4java</artifactId>
+			<version>1.4.0</version>
 		</dependency>
 
 	</dependencies>
