@@ -14,7 +14,6 @@ public class MultiThread {
 	public static void main(String[] args) {
 
 		final PublishSubject<Integer> subject = PublishSubject.create();
-		subject.publish();
 
 		subject.asObservable().subscribe(new Action1<Integer>() {
 
