@@ -2,11 +2,13 @@ package com.cml.rx.android.api;
 
 import java.io.IOException;
 
+import retrofit.BaseUrl;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
 
 import com.google.gson.Gson;
+import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.Response;
 
@@ -47,9 +49,15 @@ public class ApiClient {
 	 * @param baseUrl
 	 * @return
 	 */
-	private Retrofit build(String baseUrl) {
+	private Retrofit build(final String baseUrl) {
 		Retrofit retrofit = new Retrofit.Builder().addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-				.addConverterFactory(GsonConverterFactory.create(new Gson())).baseUrl(baseUrl).build();
+				.addConverterFactory(GsonConverterFactory.create(new Gson())).baseUrl(new BaseUrl() {
+
+					@Override
+					public HttpUrl url() {
+						return HttpUrl.parse(baseUrl);
+					}
+				}).build();
 
 		retrofit.client().interceptors().add(new com.cml.rx.android.api.HttpLoggingInterceptor());
 		retrofit.client().interceptors().add(new Interceptor() {

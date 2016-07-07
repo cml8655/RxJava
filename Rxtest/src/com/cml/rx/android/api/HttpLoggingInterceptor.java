@@ -15,8 +15,6 @@
  */
 package com.cml.rx.android.api;
 
-import static okhttp3.internal.Platform.INFO;
-
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -26,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 import com.squareup.okhttp.Connection;
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.Interceptor.Chain;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Protocol;
@@ -34,7 +31,6 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
-import com.squareup.okhttp.internal.Platform;
 import com.squareup.okhttp.internal.http.HttpEngine;
 
 import okio.Buffer;

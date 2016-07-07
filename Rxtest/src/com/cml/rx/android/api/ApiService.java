@@ -9,7 +9,7 @@ import retrofit.http.Path;
 import rx.Observable;
 
 public interface ApiService {
-	String BASE_URL = "https://api.bmob.cn";
+	String BASE_URL = "https://api.bmob.cn/test/aa/";
 	String VERSION = "/1";
 
 	interface Module {
@@ -17,7 +17,7 @@ public interface ApiService {
 		String USER = BASE_MODULE + "/User";
 	}
 
-	@PUT(Module.USER + "/{userId}")
+	@PUT("dddd/{userId}")
 	Observable<User> updateUser(@Path("userId") String userId, @Body User u);
 
 	@POST(Module.USER)
