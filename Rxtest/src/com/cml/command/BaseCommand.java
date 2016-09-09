@@ -7,6 +7,10 @@ public abstract class BaseCommand {
 
 	public static final String ALARM_SCAN_PACKAGE_ID = "50";
 	public static final String ALARM_UPDATE_PACKAGE_ID = "51";
+	public static final String ALARM_STATUE_PACKAGE_ID = "52";
+	public static final String ALARM_INIT_PACKAGE_ID = "53";
+	public static final String ALARM_TIME_SCALE_PACKAGE_ID = "54";
+	public static final String ALARM_REBOOT_PACKAGE_ID = "55";
 
 	public static final String FROM_ID = "00000000000F";// 默认来源ID
 	public static final String TARGET_ALL = "FFFFFFFFFFFF";// 查询全部
@@ -65,7 +69,13 @@ public abstract class BaseCommand {
 
 		System.out.println("checksum:" + format(v) + ",value:" + Integer.toHexString(value % 256));
 
-		return Integer.toHexString(value % 256);// 十进制转16进制
+		String checksumValue = Integer.toHexString(value % 256);
+
+		if (checksumValue.length() == 1) {
+			return "0" + checksumValue;
+		}
+
+		return checksumValue;// 十进制转16进制
 	}
 
 	/**
