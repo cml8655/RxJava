@@ -6,26 +6,30 @@ package com.cml.command;
  */
 public class AlarmUpdateCommand extends BaseCommand {
 
+	public String newDeviceId;
+	public String deviceId;
+
 	public AlarmUpdateCommand() {
 		super(ALARM_UPDATE_PACKAGE_ID);
 	}
 
 	@Override
 	public boolean isSupport(String command) {
-		// TODO Auto-generated method stub
-		return false;
+		return command.substring(2, 4).equals(ALARM_UPDATE_PACKAGE_ID);
 	}
 
 	@Override
 	public boolean parse(String command) {
-		// TODO Auto-generated method stub
-		return false;
+		return isConfirmCommand(command);
 	}
 
 	@Override
 	public String generateCommand() {
-		// TODO Auto-generated method stub
-		return null;
+		// 字段描述 特征字 操作码 老设备号 新设备号 校验码 总长度(位)
+		String checksumKey = "55" + "03" + deviceId + newDeviceId;
+		String checksumValue = checksum(checksumKey);
+		String value = checksumKey + checksumValue;
+		return value;
 	}
 
 }
