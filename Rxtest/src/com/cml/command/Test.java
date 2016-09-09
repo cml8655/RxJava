@@ -1,4 +1,4 @@
-package com.cml;
+package com.cml.command;
 
 public class Test {
 	public static void main(String[] args) {
